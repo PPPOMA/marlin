@@ -30,12 +30,34 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php $links = [
+                        [
+                            "header" => "Главная",
+                            "href" => "https://php.net/manual/ru",
+                            "is_link" => true
+                        ],
+
+	                    [
+		                    "header" => "PHP",
+		                    "href" => "https://php.net/manual/ru/",
+		                    "is_link" => true
+	                    ],
+
+	                    [
+		                    "header" => "Функции",
+		                    "href" => "",
+		                    "is_link" => false
+	                    ]
+                    ];?>
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                                <li class="breadcrumb-item"><a href="#">PHP</a></li>
-                                <li class="breadcrumb-item active">Функции</li>
+                                <?php foreach ($links as $link) :
+                                    if ($link["is_link"]) :?>
+                                        <li class="breadcrumb-item"><a href="<?=$link["href"]?>"><?=$link["header"]?></a></li>
+                                    <?php else:?>
+                                        <li class="breadcrumb-item active"><?=$link["header"]?></li>
+                                <?php endif; endforeach;?>
                             </ol>
                         </div>
                     </div>
