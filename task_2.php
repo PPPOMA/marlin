@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <?php
-                        $sections = [
+                        $articles = [
                             [
                                 "header" => "Privacy",
                                 "text" => "Your privacy is important to us at SmartAdmin and the protection, confidentiality and integrity of your personal data are our prime concerns.
@@ -49,9 +49,9 @@
                     <div class="panel-container show">
                         <div class="panel-content">
                             <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
-                                <?php foreach ($sections as $section):?>
-                                    <h2><?=$section["header"]?></h2>
-                                    <p class="mb-g"><?=$section["text"]?></p>
+                                <?php foreach ($articles as $article):?>
+                                    <h2><?=$article["header"]?></h2>
+                                    <p class="mb-g"><?=$article["text"]?></p>
                                 <?php endforeach;?>
                             </div>
                         </div>
