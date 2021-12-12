@@ -47,22 +47,22 @@
                                         $elements = [
                                             [
                                                "tags" => "reports file",
-                                               "value" => "Reports"
+                                               "title" => "Reports"
                                             ],
 
 	                                        [
 		                                        "tags" => "analytics graphs",
-		                                        "value" => "Analytics"
+		                                        "title" => "Analytics"
 	                                        ],
 
 	                                        [
 		                                        "tags" => "export download",
-		                                        "value" => "Export"
+		                                        "title" => "Export"
 	                                        ],
 
 	                                        [
 		                                        "tags" => "storage",
-		                                        "value" => "Storage"
+		                                        "title" => "Storage"
 	                                        ]
                                           ]
                                     ?>
@@ -71,7 +71,7 @@
                                             foreach ($elements as $element):
                                         ?>
                                         <li class="list-group-item">
-                                            <span data-filter-tags="<?=$element["tags"]?>"><?=$element["value"]?></span>
+                                            <span data-filter-tags="<?=$element["tags"]?>"><?=$element["title"]?></span>
                                         </li>
                                         <?php endforeach;?>
                                     </ul>
