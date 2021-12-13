@@ -30,36 +30,74 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php $arrays = [
+                                [
+                                    "header" => "My Tasks",
+                                    "value" => "130 / 500",
+                                    "tags_header" => "d-flex mt-2",
+                                    "tags_value" => "d-inline-block ml-auto",
+                                    "tags_progress" => "progress progress-sm mb-3",
+                                    "tags_progress_bar" => "progress-bar bg-fusion-400",
+                                    "role" => "progressbar",
+                                    "style" => "width: 65%;",
+                                    "aria_valuenow" => "65",
+                                    "aria_valuemin" => "0",
+                                    "aria_valuemax" => "100"
+                                ],
+
+                                [
+                                    "header" => "Transfered",
+                                    "value" => "440 TB",
+                                    "tags_header" => "d-flex",
+                                    "tags_value" => "d-inline-block ml-auto",
+                                    "tags_progress" => "progress progress-sm mb-3",
+                                    "tags_progress_bar" => "progress-bar bg-success-500",
+                                    "role" => "progressbar",
+                                    "style" => "width: 34%;",
+                                    "aria_valuenow" => "34",
+                                    "aria_valuemin" => "0",
+                                    "aria_valuemax" => "100"
+                                ],
+                                
+                                [
+                                    "header" => "Bugs Squashed",
+                                    "value" => "77%",
+                                    "tags_header" => "d-flex",
+                                    "tags_value" => "d-inline-block ml-auto",
+                                    "tags_progress" => "progress progress-sm mb-3",
+                                    "tags_progress_bar" => "progress-bar bg-info-400",
+                                    "role" => "progressbar",
+                                    "style" => "width: 77%;",
+                                    "aria_valuenow" => "77",
+                                    "aria_valuemin" => "0",
+                                    "aria_valuemax" => "100"
+                                ],
+
+                                [
+                                    "header" => "User Testing",
+                                    "value" => "7 days",
+                                    "tags_header" => "d-flex",
+                                    "tags_value" => "d-inline-block ml-auto",
+                                    "tags_progress" => "progress progress-sm mb-g",
+                                    "tags_progress_bar" => "progress-bar bg-primary-300",
+                                    "role" => "progressbar",
+                                    "style" => "width: 84%;",
+                                    "aria_valuenow" => "84",
+                                    "aria_valuemin" => "0",
+                                    "aria_valuemax" => "100"
+                                ]
+                    ];?>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <div class="d-flex mt-2">
-                                My Tasks
-                                <span class="d-inline-block ml-auto">130 / 500</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-fusion-400" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                Transfered
-                                <span class="d-inline-block ml-auto">440 TB</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-success-500" role="progressbar" style="width: 34%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                Bugs Squashed
-                                <span class="d-inline-block ml-auto">77%</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-info-400" role="progressbar" style="width: 77%;" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                User Testing
-                                <span class="d-inline-block ml-auto">7 days</span>
-                            </div>
-                            <div class="progress progress-sm mb-g">
-                                <div class="progress-bar bg-primary-300" role="progressbar" style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            <?php foreach ($arrays as $array):?>
+                                <div class="<?=$array["tags_header"]?>">
+                                    <?=$array["header"]?>
+                                    <span class="<?=$array["tags_value"]?>"><?=$array["value"]?></span>
+                                </div>
+                                <div class="<?=$array["tags_progress"]?>">
+                                    <div class="<?=$array["tags_progress_bar"]?>" role="<?=$array["role"]?>" style="<?=$array["style"]?>" aria-valuenow="<?=$array["aria_valuenow"]?>" aria-valuemin="<?=$array["aria_valuemin"]?>" aria-valuemax="<?=$array["aria_valuemax"]?>"></div>
+                                </div>
+                            <?php endforeach;?>
                         </div>
                     </div>
                 </div>
