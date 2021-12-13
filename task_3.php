@@ -34,23 +34,26 @@
                         [
                             "header" => "Главная",
                             "href" => "https://php.net/manual/ru",
+                            "is_links" => true
                         ],
 
 	                    [
 		                    "header" => "PHP",
-		                    "href" => "https://php.net/manual/ru/",
+                            "href" => "https://php.net/manual/ru/",
+                            "is_links" => true
 	                    ],
 
 	                    [
 		                    "header" => "Функции",
-		                    "href" => "",
+                            "href" => "",
+                            "is_links" => false
 	                    ]
                     ];?>
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
                                 <?php foreach ($links as $link) :
-                                    if ($link["href"]) :?>
+                                    if ($link["links"]) :?>
                                         <li class="breadcrumb-item"><a href="<?=$link["href"]?>"><?=$link["header"]?></a></li>
                                     <?php else:?>
                                         <li class="breadcrumb-item active"><?=$link["header"]?></li>
