@@ -39,19 +39,18 @@
                             <div class="panel-content">
                                 <div class="form-group">
                                   <?php
-                                    if(!$_POST) :
+                                    if($_POST)
+                                    {
+	                                    $sql = "INSERT INTO task_9 (text) VALUE ('".$_POST["text"]."')";
+	                                    $statement = $pdo->query($sql);
+	                                    echo "Текст внесен в таблицу.";
+                                    }
                                   ?>
                                     <form action="" method="post">
                                         <label class="form-label" for="simpleinput">Text</label>
                                         <input type="text" id="simpleinput" class="form-control" name="text">
                                         <button class="btn btn-success mt-3">Submit</button>
                                     </form>
-                                  <?php
-                                    else :
-                                      $sql = "INSERT INTO task_9 (text) VALUE ('".$_POST["text"]."')";
-                                      $statement = $pdo->query($sql);
-                                      echo "Текст внесен в таблицу.";
-                                    endif;?>
                                 </div>
                             </div>
                         </div>
