@@ -10,7 +10,7 @@
 
     $pdo = new PDO($dsn, $db_user, $db_password);
 
-    $sql = 'SELECT * FROM users';
+    $sql = 'SELECT * FROM task_7';
     $statement = $pdo->query($sql);
     $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
