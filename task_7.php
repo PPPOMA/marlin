@@ -1,3 +1,19 @@
+<?php
+    $driver = 'mysql';
+    $host = 'localhost';
+    $db_name = 'my_database';
+    $db_user = 'mysql';
+    $db_password = 'mysql';
+    $charset = 'utf8';
+
+    $dsn = "$driver:host=$host;dbname=$db_name;charset=$charset";
+
+    $pdo = new PDO($dsn, $db_user, $db_password);
+
+    $sql = 'SELECT * FROM users';
+    $statement = $pdo->query($sql);
+    $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,60 +48,23 @@
                     </div>
                     <div class="panel-container show">
                         <div class="panel-content">
-                           <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/sunny.png" alt="Sunny A." class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Sunny A. (UI/UX Expert)
-                                        <small class="m-0 fw-300">
-                                            Lead Author
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@myplaneticket" class="text-info fs-sm" target="_blank">@myplaneticket</a> -
-                                    <a href="https://wrapbootstrap.com/user/myorange" class="text-info fs-sm" target="_blank" title="Contact Sunny"><i class="fal fa-envelope"></i></a>
-                                </div>
+                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
+                                <?php foreach($users as $user): ?>
+                                    <div class="<?php if($user["banned"]) echo "banned"?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                        <img src="img/demo/authors/<?=$user["image"]?>" alt="<?=$user["full_name"]?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
+                                        <div class="ml-2 mr-3">
+                                            <h5 class="m-0">
+                                                <?=$user["full_name"].' '.$user["specialization"]?>
+                                                <small class="m-0 fw-300">
+                                                    <?=$user["role"]?>
+                                                </small>
+                                            </h5>
+                                            <a href="https://twitter.com/<?=$user["twitter"]?>" class="text-info fs-sm" target="_blank"><?=$user["twitter"]?></a> -
+                                            <a href="https://wrapbootstrap.com/user/<?=$user["wrapbootstrap"]?>" class="text-info fs-sm" target="_blank" title="Contact <?=$user["first_name"]?>"><i class="fal fa-envelope"></i></a>
+                                        </div>
+                                    </div>
+                                <?php endforeach;?>
                             </div>
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/josh.png" alt="Jos K." class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Jos K. (ASP.NET Developer)
-                                        <small class="m-0 fw-300">
-                                            Partner &amp; Contributor
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@atlantez" class="text-info fs-sm" target="_blank">@atlantez</a> -
-                                    <a href="https://wrapbootstrap.com/user/Walapa" class="text-info fs-sm" target="_blank" title="Contact Jos"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div>
-                            <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/jovanni.png" alt="Jovanni Lo" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Jovanni L. (PHP Developer)
-                                        <small class="m-0 fw-300">
-                                            Partner &amp; Contributor
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@lodev09" class="text-info fs-sm" target="_blank">@lodev09</a> -
-                                    <a href="https://wrapbootstrap.com/user/lodev09" class="text-info fs-sm" target="_blank" title="Contact Jovanni"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div>
-                            <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/roberto.png" alt="Jovanni Lo" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Roberto R. (Rails Developer)
-                                        <small class="m-0 fw-300">
-                                            Partner &amp; Contributor
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@sildur" class="text-info fs-sm" target="_blank">@sildur</a> -
-                                    <a href="https://wrapbootstrap.com/user/sildur" class="text-info fs-sm" target="_blank" title="Contact Roberto"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
