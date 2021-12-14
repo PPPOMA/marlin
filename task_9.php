@@ -41,9 +41,12 @@
                                   <?php
                                     if($_POST)
                                     {
-	                                    $sql = "INSERT INTO task_9 (text) VALUE ('".$_POST["text"]."')";
-	                                    $statement = $pdo->query($sql);
-	                                    echo "Текст внесен в таблицу.";
+                                        $sql = "INSERT INTO task_9 (text) VALUE ('".$_POST["text"]."')";
+                                        $statement = $pdo->query($sql);
+                                        if ($statement)
+                                        {
+                                            echo "Текст внесен в таблицу.";
+                                        }
                                     }
                                   ?>
                                     <form action="" method="post">
