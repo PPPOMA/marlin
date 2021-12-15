@@ -64,8 +64,8 @@
         </main>
         
 
-        <script src="js/vendors.bundle.js"></script>
-        <script src="js/app.bundle.js"></script>
+        <script src="../js/vendors.bundle.js"></script>
+        <script src="../js/app.bundle.js"></script>
         <script>
             // default list filter
             initApp.listFilter($('#js_default_list'), $('#js_default_list_filter'));
