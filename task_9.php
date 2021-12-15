@@ -39,17 +39,14 @@
                             <div class="panel-content">
                                 <div class="form-group">
                                   <?php
-                                    if($_POST)
+                                    if($_POST) 
                                     {
-                                        $sql = "INSERT INTO task_9 (text) VALUE ('".$_POST["text"]."')";
-                                        $statement = $pdo->query($sql);
-                                        if ($statement)
-                                        {
-                                            echo "Текст внесен в таблицу.";
-                                        }
+                                        $sql = "INSERT INTO task_9 (text) VALUE (:text)";
+                                        $statement = $pdo->prepare($sql);
+                                        $statement->execute(["text" => $_POST["text"]]);
                                     }
                                   ?>
-                                    <form action="" method="post">
+                                    <form action="task_9.php" method="post">
                                         <label class="form-label" for="simpleinput">Text</label>
                                         <input type="text" id="simpleinput" class="form-control" name="text">
                                         <button class="btn btn-success mt-3">Submit</button>
