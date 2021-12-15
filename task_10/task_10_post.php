@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("db_connection.php");
+    require_once("../db_connection.php");
 
     $sql = "SELECT * FROM task_10 WHERE text = :text";
     $statement = $pdo->prepare($sql);
