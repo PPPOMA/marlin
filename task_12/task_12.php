@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,13 +35,15 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
+                                    <?php if($_SESSION["text"]) :?>
                                     <div class="alert alert-info fade show" role="alert">
-                                        Ваше сообщение выводится тут
+                                        <?=$_SESSION["text"]?>
                                     </div>
-                                    <form action="">
+                                    <?php endif;?>
+                                    <form action="task_12_handler.php" method="post">
                                         <div class="form-group">
-                                        	<label class="form-label" for="simpleinput">Text</label>
-                                            <input type="text" id="simpleinput" class="form-control">
+                                            <label class="form-label" for="simpleinput">Text</label>
+                                            <input type="text" id="simpleinput" class="form-control" name="text">
                                         </div>
                                         <button class="btn btn-success mt-3">Submit</button>
                                     </form>
