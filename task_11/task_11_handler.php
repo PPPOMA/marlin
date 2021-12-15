@@ -13,12 +13,10 @@
     }
     else
     {
-        var_dump($statement);
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (email, password) VALUE (:email, :password)";
         $statement = $pdo->prepare($sql);
-        var_dump($statement);
-        $statement->execute(["email" => $_POST["email"], ["password"] => $_POST["password"]]);
-        var_dump($statement);
+        $statement->execute(["email" => $_POST["email"], "password" => $password]);
         header("Location: task_11.php");
     }
 ?>

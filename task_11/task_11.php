@@ -40,7 +40,7 @@
                                     <?php if($_SESSION["error_message"]) :?>
                                         <div class="alert alert-danger fade show" role="alert">
                                             <?php 
-                                                $_SESSION["error_message"];
+                                                echo $_SESSION["error_message"];
                                                 unset($_SESSION["error_message"]);
                                             ?>
                                         </div>
