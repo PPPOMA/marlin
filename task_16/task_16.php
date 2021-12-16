@@ -17,6 +17,7 @@
         <link rel="stylesheet" media="screen, print" href="../css/fa-solid.css">
         <link rel="stylesheet" media="screen, print" href="../css/fa-brands.css">
         <link rel="stylesheet" media="screen, print" href="../css/fa-regular.css">
+        <link rel="stylesheet" media="screen, print" href="../css/my_css.css">
     </head>
     <body class="mod-bg-1 mod-nav-link ">
         <main id="js-page-content" role="main" class="page-content">
@@ -70,7 +71,8 @@
                                                 foreach ($images as $image):
                                         ?>
                                         <div class="col-md-3 image">
-                                            <img src="img/<?=$image["image"]?>" width="200px">
+                                            <img src="img/<?=$image["image"]?>" class="image-pos">
+                                            <a class="btn btn-danger" onclick="confirm('Вы уверены?');" href="#">Удалить</a>
                                         </div>
                                         <?php endforeach; endif;?>
                                     </div>

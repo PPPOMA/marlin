@@ -8,23 +8,23 @@
     $statement = $pdo->prepare($sql);
     $statement->execute(["email" => $email]);
     $result = $statement->fetch(PDO::FETCH_ASSOC);
-    if (!$result)
+
+    if (empty($result))
     {
         $_SESSION["error_message"] = "Неверный логин или пароль";
         header("Location: task_14.php");
+        exit;
     }
-    else
+
+    $hash = password_verify($password, $result["password"]);
+    if(empty($hash))
     {
-        $hash = password_verify($password, $result["password"]);
-        if(!$hash)
-        {
-            $_SESSION["error_message"] = "Неверный логин или пароль";
-            header("Location: task_14.php");
-        }
-        else
-        {
-            $_SESSION["username"] = $result["username"];
-            header("Location: ../task_15/task_15.php");
-        }
+        $_SESSION["error_message"] = "Неверный логин или пароль";
+        header("Location: task_14.php");
+        exit;
     }
+
+    $_SESSION["username"] = $result["username"];
+    header("Location: ../task_15/task_15.php");
+    exit;
 ?>
