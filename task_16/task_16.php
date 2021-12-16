@@ -70,7 +70,7 @@
                                     foreach ($images as $image):
                                         ?>
                                         <div class="col-md-3 image">
-                                            <img src="img/<?=$image["image"]?>" width="200px">
+                                            <img src="img/<?=$image["image"]?>" class="img-fluid">
                                         </div>
                                     <?php endforeach; endif;?>
                             </div>
