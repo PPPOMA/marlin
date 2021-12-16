@@ -47,7 +47,6 @@
                                         <div class="alert alert-success fade show" role="alert">
                                             <?php
                                                 echo $_SESSION["success_message"];
-                                                unset($_SESSION["success_message"]);
                                             ?>
                                         </div>
                                     <?php else:?>
