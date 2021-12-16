@@ -23,9 +23,8 @@
         }
         else
         {
-            $_SESSION["id"] = $result["id"];
-            $_SESSION["success_message"] = "Вы успешно авторизованы";
-            header("Location: task_14.php");
+            $_SESSION["username"] = $result["username"];
+            header("Location: ../task_15/task_15.php");
         }
     }
 ?>
