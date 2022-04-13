@@ -54,10 +54,7 @@
                 ];
             ?>
             <div class="row js-list-filter" id="js-contacts">
-                <?php foreach ($users as $user):
-                $test = preg_match("/\+\\d{11}/", $user["phone"]);
-                echo $test;
-                    //$phone = preg_replace("/\+\\d{11}/", "^\+\\d{1}-\\d{3}-\\d{3}-\\d{4}/", $user["phone"]);?>
+                <?php foreach ($users as $user):?>
                 <div class="col-xl-4">
                     <div id="<?=$user["id"]?>" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="<?=$user["name"]?>">
                         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
@@ -86,7 +83,9 @@
                         <div class="card-body p-0 collapse show">
                             <div class="p-3">
                                 <a href="tel:<?=$user["phone"]?>" class="mt-1 d-block fs-sm fw-400 text-dark">
-                                    <i class="fas fa-mobile-alt text-muted mr-2"></i> <?=$phone?></a>
+                                    <i class="fas fa-mobile-alt text-muted mr-2"></i> 
+                                    <?=preg_replace("/(\+\\d{1})(\\d{3})(\\d{3})(\\d{4})/", "$1 $2-$3-$4", $user["phone"]);?>
+                                </a>
                                 <a href="mailto:<?=$user["mail"]?>" class="mt-1 d-block fs-sm fw-400 text-dark">
                                     <i class="fas fa-mouse-pointer text-muted mr-2"></i> <?=$user["mail"]?></a>
                                 <address class="fs-sm fw-400 mt-4 text-muted">
