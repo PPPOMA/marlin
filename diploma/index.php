@@ -1,3 +1,10 @@
+<?php
+    require("db_connection.php");
+    $sql = "SELECT * FROM users";
+    $statement = $pdo->query($sql);
+    $row = $statement->fetchAll();
+    var_dump($row);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
