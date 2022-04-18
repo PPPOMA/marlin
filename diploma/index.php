@@ -2,8 +2,8 @@
     require("db_connection.php");
     $sql = "SELECT * FROM users";
     $statement = $pdo->query($sql);
-    $row = $statement->fetchAll();
-    var_dump($row);
+    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($rows);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,21 +58,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($rows as $row):?>
                                         <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row"><?=$row["id"]?></th>
                                             <td>
-                                                <img src="img/demo/authors/josh.png" width="75">
+                                                <img src="img/demo/authors/<?=$row["avatar"]?>" width="75">
                                             </td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td><?=$row["login"]?></td>
+                                            <td><?=$row["role"]?></td>
+                                            <td><?=$row["sex"]?></td>
                                             <td>
                                                 <a href="show.php" class="btn btn-info">Посмотреть</a>
                                                 <a href="edit.php" class="btn btn-warning">Изменить</a>
                                                 <a href="delete.php" class="btn btn-danger">Удалить</a>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <?php endforeach?>
+                                        <!--<tr>
                                             <th scope="row">2</th>
                                             <td>
                                                 <img src="img/demo/authors/jovanni.png" width="75">
@@ -113,7 +115,7 @@
                                                 <a href="edit.html" class="btn btn-warning">Изменить</a>
                                                 <a href="delete.html" class="btn btn-danger">Удалить</a>
                                             </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>

@@ -36,10 +36,10 @@
                                 Добавление пользователя
                             </h5>
                             <div class="frame-wrap">
-                                <form>
+                                <form enctype="multipart/form-data" method="post" action="create_user.php">
                                     <div class="form-group">
                                         <label class="form-label" for="simpleinput">Логин</label>
-                                        <input type="text" id="simpleinput" class="form-control">
+                                        <input type="text" id="simpleinput" class="form-control" name="login">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="example-email-2">Email</label>
@@ -47,11 +47,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="example-password">Password</label>
-                                        <input type="password" id="example-password" class="form-control" value="">
+                                        <input type="password" id="example-password" class="form-control" value="" name="password">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="example-select">Роль</label>
-                                        <select class="form-control" id="example-select">
+                                        <select class="form-control" id="example-select" name="role">
                                             <option>Обычный пользователь</option>
                                             <option>Контент-менеджер</option>
                                             <option>Администратор</option>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="example-fileinput">Аватар</label>
-                                        <input type="file" id="example-fileinput" class="form-control-file">
+                                        <input type="file" id="example-fileinput" class="form-control-file" name="avatar">
                                     </div>
 
                                     <div class="form-group">
