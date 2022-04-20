@@ -9,13 +9,19 @@ if(isset($_POST))
         move_uploaded_file($_FILES["avatar"]["tmp_name"], "img/avatar/".$name); //перемещаем загруженный файл в указанную папку
         $_POST["avatar"] = $name;
     }
+    else
+    {
+        //$_POST["avatar"] = "no_avatar";
+    }
+    $sql = "INSERT INTO users (login, email, password, role, avatar) VALUE (:login, :email, :password, :role, :avatar)";
 
-    $sql = "INSERT INTO users () VALUE ()";
+    $statement = $pdo->prepare($sql);
+    $statement->execute($_POST);
 }
 else
 {
     echo "Что-то пошло не так!";
 }
 
-var_dump($_POST);
+header("Location: /diploma/index.php");
 ?>
